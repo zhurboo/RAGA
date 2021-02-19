@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from model import RDGCN
+from model import RAGA
 from data import DBP15K
 from loss import L1_Loss
 from utils import add_inverse_rels, get_train_batch, get_hits, get_hits_stable
@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument("--rate", type=float, default=0.3)
     
     parser.add_argument("--r_hidden", type=int, default=100)
-    
+
     parser.add_argument("--k", type=int, default=5)
     parser.add_argument("--gamma", type=float, default=3)
     
@@ -77,7 +77,7 @@ def test(model, data, stable=False):
 def main(args):
     device = 'cuda' if args.cuda and torch.cuda.is_available() else 'cpu'
     data = init_data(args, device).to(device)
-    model = RDGCN(data.x1.size(1), args.r_hidden).to(device)
+    model = RAGA(data.x1.size(1), args.r_hidden).to(device)
     optimizer = torch.optim.Adam(itertools.chain(model.parameters(), iter([data.x1, data.x2])))
     model, optimizer = apex.amp.initialize(model, optimizer)
     criterion = L1_Loss(args.gamma)

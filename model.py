@@ -93,9 +93,9 @@ class GAT(nn.Module):
         return x
     
     
-class RDGCN(nn.Module):
+class RAGA(nn.Module):
     def __init__(self, e_hidden=300, r_hidden=100):
-        super(RDGCN, self).__init__()
+        super(RAGA, self).__init__()
         self.gcn1 = GCN(e_hidden)
         self.highway1 = Highway(e_hidden)
         self.gcn2 = GCN(e_hidden)
