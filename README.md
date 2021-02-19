@@ -2,7 +2,7 @@
 Relation-aware Graph Attention Networks for Global Entity Alignment
 
 ## Datasets
-Please download the datasets [here](https://drive.google.com/drive/folders/1SN3JAV3clMMUPQ0M6LTJQ4GZ8JFLTy0s?usp=sharing) and extract them into root directory.
+Please download the datasets [here](https://drive.google.com/file/d/1uJ2omzIs0NCtJsGQsyFCBHCXUhoK1mkO/view?usp=sharing) and extract them into root directory.
 
 ## Environment
 
